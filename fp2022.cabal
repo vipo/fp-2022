@@ -26,6 +26,8 @@ source-repository head
 library
   exposed-modules:
       Lesson01
+      Lesson02
+      Lesson03
   other-modules:
       Paths_fp2022
   hs-source-dirs:
