@@ -39,6 +39,7 @@ search' k1 ((k,v):t) =
     if k1 == k then Just v else search' k1 t
 
 instance Eq a => Eq (BetterMaybe a ) where
+    
   (A a1) == (A a2) = a1 == a2
   Nothing1 == Nothing1 = True
   _ == _ = False
