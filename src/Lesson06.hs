@@ -80,4 +80,4 @@ parsePair str = do
     (i1, r1) <- parseInteger str
     (_, r2) <- parseComma r1
     (i2, r3) <- parseInteger r2
-    return $ ((i1, i2), r3)
+    return ((i1, i2), r3)
