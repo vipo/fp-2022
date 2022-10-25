@@ -1,5 +1,10 @@
 module Lesson07
-    ( 
+    (
+        Lesson07.or,
+        many1,
+        parseChar,
+        optional,
+        parseInteger
     ) where
 
 import Text.Read
@@ -78,14 +83,3 @@ parseChar :: Char -> String -> Either String (Char, String)
 parseChar ch [] = Left $ "Empty input: '" ++ [ch] ++ "' expected"
 parseChar ch (x:xs) | ch == x = Right (x, xs)
                     | otherwise = Left $ ch :" expected"
-
-data Doc = DocList [Doc] | DocInt Integer
-
--- 123 -> DocInt 123
--- [] -> DocList []
--- [123] -> DocList [DocInt 123]
--- [1234,123213] -> DocList [DocInt 1234, DocInt 123213]
--- [[]]
--- [[],[]]
--- [1234, [123,33], [], 213]
-parseDoc :: String -> Either String (Doc, String)
