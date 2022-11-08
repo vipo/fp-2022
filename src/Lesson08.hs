@@ -1,8 +1,11 @@
-module Lesson08 () where
+module Lesson08 (
+    Doc(..),
+    parseDoc
+) where
 
 import Lesson07(or, many1, parseChar, optional, parseInteger)
 
-data Doc = DocList [Doc] | DocInt Integer deriving Show
+data Doc = DocList [Doc] | DocInt Integer deriving (Show, Eq)
 
 -- 123 -> DocInt 123
 -- [] -> DocList []

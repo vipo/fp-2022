@@ -28,11 +28,18 @@ library
       Lesson01
       Lesson02
       Lesson03
+      Lesson04
+      Lesson05
+      Lesson06
+      Lesson07
+      Lesson08
+      Lesson09
   other-modules:
       Paths_fp2022
   hs-source-dirs:
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
-      base >=4.7 && <5
+      QuickCheck
+    , base >=4.7 && <5
   default-language: Haskell2010
