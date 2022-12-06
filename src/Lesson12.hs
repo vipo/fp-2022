@@ -1,4 +1,4 @@
-module Lesson12 () where
+module Lesson12 (State, put, get) where
 
 import Data.Char(isDigit)
 
