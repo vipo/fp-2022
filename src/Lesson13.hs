@@ -2,7 +2,7 @@
 {-# LANGUAGE TypeSynonymInstances #-}
 {-# LANGUAGE FlexibleInstances #-}
 
-module Lesson13 () where
+module Lesson13 (EitherT(..), runEitherT, throwError) where
 
 import Data.Char(isDigit)
 
@@ -63,7 +63,7 @@ instance MonadTrans (EitherT e) where
     lift ma = EitherT $ fmap Right ma
 
 instance Monad m => Functor (EitherT e m) where
-    fmap f a = EitherT . liftM (fmap f) . runEitherT a
+    fmap f = EitherT . liftM (fmap f) . runEitherT
 
 instance Monad m => Applicative (EitherT e m) where
     pure a = EitherT $ return $ Right a
@@ -80,6 +80,9 @@ instance Monad m => Monad (EitherT e m) where
             Left  l -> return (Left l)
             Right r -> runEitherT (k r)
 
+
+throwError :: Monad m => e -> EitherT e m a
+throwError e = EitherT $ return $ Left e
 
 -- newtype ParseError = ParseError String deriving Show
 
